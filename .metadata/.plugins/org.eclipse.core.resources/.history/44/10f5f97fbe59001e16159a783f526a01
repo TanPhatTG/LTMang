@@ -1,0 +1,88 @@
+package View;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Controller.NslookupController;
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.Color;
+
+public class Nslookup extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	public JPanel contentPane;
+	public JTextField tfDirectory;
+
+	public JLabel lblError;
+	public JTextField tfFileName;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public Nslookup() {
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 663, 506);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Action action = new NslookupController(this);
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblTenMien = new JLabel("Folder");
+		lblTenMien.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblTenMien.setBounds(58, 118, 82, 27);
+		contentPane.add(lblTenMien);
+		
+		tfDirectory = new JTextField();
+		tfDirectory.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		tfDirectory.setBounds(150, 114, 322, 38);
+		contentPane.add(tfDirectory);
+		tfDirectory.setColumns(10);
+		
+		JButton btnSearch = new JButton("Open");
+		btnSearch.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSearch.setBounds(482, 118, 117, 26);
+		btnSearch.addActionListener(action);
+		contentPane.add(btnSearch);
+		
+		lblError = new JLabel("");
+		lblError.setForeground(Color.RED);
+		lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblError.setBounds(58, 151, 509, 27);
+		contentPane.add(lblError);
+		
+		JLabel lblFileName = new JLabel("File Name:");
+		lblFileName.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblFileName.setBounds(58, 274, 93, 27);
+		contentPane.add(lblFileName);
+		
+		tfFileName = new JTextField();
+		tfFileName.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		tfFileName.setColumns(10);
+		tfFileName.setBounds(150, 270, 322, 38);
+		contentPane.add(tfFileName);
+		
+		JButton btnCreat = new JButton("Creat");
+		btnCreat.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCreat.setBounds(482, 274, 117, 26);
+		btnCreat.addActionListener(action);
+		contentPane.add(btnCreat);
+	}
+}

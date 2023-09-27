@@ -1,0 +1,19 @@
+import java.awt.EventQueue;
+
+public class Test extends Nslookup{
+
+	private static final long serialVersionUID = 1802199483736051124L;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Nslookup frame = new Nslookup();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

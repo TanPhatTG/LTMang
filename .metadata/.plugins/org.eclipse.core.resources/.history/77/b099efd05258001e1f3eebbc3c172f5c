@@ -1,0 +1,55 @@
+package View;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+
+public class Nslookup extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField tfTenMien;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public Nslookup() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 643, 525);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblTenMien = new JLabel("Tên miền");
+		lblTenMien.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblTenMien.setBounds(58, 114, 82, 27);
+		contentPane.add(lblTenMien);
+		
+		tfTenMien = new JTextField();
+		tfTenMien.setBounds(150, 114, 322, 27);
+		contentPane.add(tfTenMien);
+		tfTenMien.setColumns(10);
+		
+		JButton btnSearch = new JButton("Tìm");
+		btnSearch.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSearch.setBounds(482, 114, 85, 26);
+		contentPane.add(btnSearch);
+		
+		JTextArea taView = new JTextArea();
+		taView.setBounds(58, 192, 509, 219);
+		contentPane.add(taView);
+	}
+}

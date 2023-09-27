@@ -1,0 +1,73 @@
+package View;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Controller.NslookupController;
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.Color;
+
+public class Nslookup extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	public JPanel contentPane;
+	public JTextField tfTenMien;
+
+	public JTextArea taView;
+
+	public JLabel lblError;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public Nslookup() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 663, 506);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Action action = new NslookupController(this);
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblTenMien = new JLabel("Tên miền");
+		lblTenMien.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblTenMien.setBounds(58, 114, 82, 27);
+		contentPane.add(lblTenMien);
+		
+		tfTenMien = new JTextField();
+		tfTenMien.setBounds(150, 114, 322, 27);
+		contentPane.add(tfTenMien);
+		tfTenMien.setColumns(10);
+		
+		JButton btnSearch = new JButton("Tra cứu IP");
+		btnSearch.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSearch.setBounds(482, 114, 111, 26);
+		btnSearch.addActionListener(action);
+		contentPane.add(btnSearch);
+		
+		taView = new JTextArea();
+		taView.setBounds(58, 192, 535, 219);
+		contentPane.add(taView);
+		
+		lblError = new JLabel("");
+		lblError.setForeground(Color.RED);
+		lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblError.setBounds(58, 151, 509, 27);
+		contentPane.add(lblError);
+	}
+}

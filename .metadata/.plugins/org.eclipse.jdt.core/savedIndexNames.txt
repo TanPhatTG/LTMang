@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+D:\LTMang\.metadata\.plugins\org.eclipse.jdt.core
+3900342853.index
+3525749763.index
+1865797976.index

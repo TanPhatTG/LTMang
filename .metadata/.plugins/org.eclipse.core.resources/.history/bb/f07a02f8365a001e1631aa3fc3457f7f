@@ -1,0 +1,94 @@
+package View;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Controller.NslookupController;
+
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.Action;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import java.awt.Scrollbar;
+import java.awt.ScrollPane;
+import javax.swing.JTextPane;
+import java.awt.TextArea;
+
+public class Nslookup extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	public JPanel contentPane;
+	public JTextField tfDirectory;
+
+	public JLabel lblError;
+
+	public JTextArea textArea;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public Nslookup() {
+
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 663, 465);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Action action = new NslookupController(this);
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblTenMien = new JLabel("Folder");
+		lblTenMien.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblTenMien.setBounds(61, 52, 82, 27);
+		contentPane.add(lblTenMien);
+		
+		tfDirectory = new JTextField();
+		tfDirectory.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		tfDirectory.setBounds(153, 48, 322, 38);
+		contentPane.add(tfDirectory);
+		tfDirectory.setColumns(10);
+		
+		JButton btnSearch = new JButton("Open");
+		btnSearch.setForeground(Color.BLACK);
+		btnSearch.setBackground(new Color(0, 0, 0));
+		btnSearch.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSearch.setBounds(485, 48, 117, 38);
+		btnSearch.addActionListener(action);
+		contentPane.add(btnSearch);
+		
+		lblError = new JLabel("");
+		lblError.setForeground(Color.RED);
+		lblError.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblError.setBounds(93, 370, 509, 27);
+		contentPane.add(lblError);
+		
+		ScrollPane scrollPane = new ScrollPane();
+		scrollPane.setBounds(62, 138, 540, 211);
+		contentPane.add(scrollPane);
+		
+		textArea = new JTextArea();
+		textArea.setBounds(0, 0, 5, 22);
+		scrollPane.add(textArea);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.setForeground(Color.BLACK);
+		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnDelete.setBackground(Color.BLACK);
+		btnDelete.setBounds(485, 96, 117, 38);
+		contentPane.add(btnDelete);
+	}
+}
